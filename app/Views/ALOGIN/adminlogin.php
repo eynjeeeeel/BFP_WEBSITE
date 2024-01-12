@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BFP Community Login Form</title>
+    <title>BFP Admin Login Form</title>
     <style>
         body {
             background-image: url("@/assets/bg.jpg");
@@ -127,7 +127,6 @@
             border-color: #ebccd1;
             color: #a94442;
         }
-
     </style>
 </head>
 
@@ -139,26 +138,29 @@
                 <?= session('logout_success') ?>
             </div>
         <?php endif; ?>
-        <?php if (session()->has('success')) : ?>
-                            <div class="alert alert-success mt-3" role="alert">
-                                <?= session('success') ?>
-                            </div>
-                        <?php endif; ?>
 
-                        <?php if (isset($validation) && $validation->getErrors()) : ?>
-                            <div class="alert alert-danger mt-3" role="alert">
-                                Please check the form for errors.
-                            </div>
+        <?php if (session()->has('success')) : ?>
+            <div class="alert alert-success mt-3" role="alert">
+                <?= session('success') ?>
+            </div>
         <?php endif; ?>
-        
+
+        <?php if (isset($validation) && $validation->getErrors()) : ?>
+            <div class="alert alert-danger mt-3" role="alert">
+                <?= $validation->listErrors() ?>
+            </div>
+        <?php endif; ?>
+
         <div class="logo-container">
-            <img class="logo" src="<?= base_url('C:\laragon\www\BFP_WEBSITE\public\images\bfp-banner.jpg') ?>" alt="Logo">
+            <img class="logo" src="<?= base_url('C:\laragon\www\BFP_WEBSITE\public\images\bfp-banner.jpg') ?>"
+                alt="Logo">
         </div>
+
+        <h2 class="bfp-title">Bureau of Fire Protection (Admin)</h2>
         
-        <h2 class="bfp-title">Bureau of Fire Protection</h2>
-        <form action="<?= site_url('login/processLogin') ?>" method="post">
-            <label for="username" >Email:</label>
-            <input type="text" name="email" class="v-text-field" required>
+        <form action="<?= site_url('admin-login/processLogin') ?>" method="post">
+            <label for="username">Email:</label>
+            <input type="text" name="email_address" class="v-text-field" required>
             <br>
             <label for="password">Password:</label>
             <input type="password" name="password" class="v-text-field" required>
@@ -168,20 +170,18 @@
             <br>
             <button type="submit" class="bfp-btn">Login</button>
         </form>
-        <p class="bfp-link" onclick="goToForgotPassword">Forgot Password?</p>
-        <a href="<?= site_url('/registration') ?>" class="create-account-btn">Create an Account</a>
+        <p class="bfp-link" onclick="goToForgotPassword()">Forgot Password?</p>
+        
+        <a href="<?= site_url('/admin-registration') ?>" class="create-account-btn">Create an Admin Account</a>
     </div>
 
     <script>
-        // Script to toggle password visibility
         document.getElementById('showPassword').addEventListener('change', function () {
             var passwordInput = document.querySelector('input[name="password"]');
             passwordInput.type = this.checked ? 'text' : 'password';
         });
 
-        // Function to handle forgot password link
         function goToForgotPassword() {
-            // Add your logic to redirect or handle the forgot password action
             console.log('Redirect to forgot password page');
         }
     </script>

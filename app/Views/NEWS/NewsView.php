@@ -26,8 +26,8 @@
         }
 
         .card-img {
-            max-height: 200px; /* Adjust the max height according to your design */
-            object-fit: cover; /* Ensure the image covers the container */
+            max-height: 200px; 
+            object-fit: cover;
         }
     </style>
 </head>

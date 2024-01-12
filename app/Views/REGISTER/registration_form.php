@@ -37,7 +37,6 @@
 
         .form-group {
             margin-bottom: 20px;
-            margin-left: 20px;
         }
 
         .form-control {
@@ -81,6 +80,15 @@
             color: #dc3545;
             font-size: 80%;
         }
+
+        .show-password {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #dc3545;
+        }
     </style>
 </head>
 
@@ -94,7 +102,7 @@
                         <h2 class="font-weight-bold">BFP Community Registration Form</h2>
                     </div>
                     <div class="card-body">
-                        <form action="processForm" method="post" enctype="multipart/form-data">
+                        <form action="<?= site_url('registration/processForm') ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="fullName" class="font-weight-bold">Full Name:</label>
                                 <input type="text" name="fullName" class="form-control" value="<?= set_value('fullName') ?>" required>
@@ -137,17 +145,24 @@
 
                             <div class="form-group">
                                 <label for="password" class="font-weight-bold">Password:</label>
-                                <input type="password" name="password" class="form-control" required>
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" class="form-control" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <input type="checkbox" id="showPassword"> Show
+                                        </span>
+                                    </div>
+                                </div>
                                 <?php if (isset($validation) && $validation->getError('password')) { ?>
                                     <div class="text-danger"><?= esc($validation->getError('password')) ?></div>
                                 <?php } ?>
-                            </div>
+                            </div>  
 
                             <div class="form-group">
                                 <label for="sex" class="font-weight-medium">Sex:</label>
                                 <select name="sex" class="form-control" required>
-                                    <option value="male" <?= set_select('sex', 'male') ?>>Male</option>
-                                    <option value="female" <?= set_select('sex', 'female') ?>>Female</option>
+                                    <option value="male" <?= (set_value('sex') === 'male') ? 'selected' : '' ?>>Male</option>
+                                    <option value="female" <?= (set_value('sex') === 'female') ? 'selected' : '' ?>>Female</option>
                                 </select>
                                 <?php if (isset($validation) && $validation->getError('sex')) { ?>
                                     <div class="text-danger"><?= esc($validation->getError('sex')) ?></div>
@@ -155,18 +170,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="photoId" class="font-weight-bold">Photo ID Upload:</label>
-                                <input type="file" name="photoId" accept="image/*" class="form-control-file" required>
-                                <?php if (isset($validation) && $validation->getError('photoId')) { ?>
-                                    <div class="text-danger"><?= esc($validation->getError('photoId')) ?></div>
+                                <label for="photoIdPath" class="font-weight-bold">Upload Any Valid ID:</label>
+                                <input type="file" name="photoIdPath" accept="image/*" class="form-control-file" required>
+                                <?php if (isset($validation) && $validation->getError('photoIdPath')) { ?>
+                                    <div class="text-danger"><?= esc($validation->getError('photoIdPath')) ?></div>
                                 <?php } ?>
                             </div>
 
                             <div class="form-group">
-                                <label for="profilePhoto" class="font-weight-bold">Profile Photo Upload:</label>
-                                <input type="file" name="profilePhoto" accept="image/*" class="form-control-file" required>
-                                <?php if (isset($validation) && $validation->getError('profilePhoto')) { ?>
-                                    <div class="text-danger"><?= esc($validation->getError('profilePhoto')) ?></div>
+                                <label for="profilePhotoPath" class="font-weight-bold">Upload Your Formal Photo:</label>
+                                <input type="file" id="profilePhotoPath" name="profilePhotoPath" accept="image/*" class="form-control-file" required>
+                                <?php if (isset($validation) && $validation->getError('profilePhotoPath')) { ?>
+                                    <div class="text-danger"><?= esc($validation->getError('profilePhotoPath')) ?></div>
                                 <?php } ?>
                             </div>
 
@@ -183,9 +198,22 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
 
                             <div class="form-group">
-                                <p class="text-body-1">Already have an account?<a class="link-login" href="<?= site_url('/login') ?>">Login</a></p>
+                                <p class="text-body-1">Already have an account? <a class="link-login" href="<?= site_url('/login') ?>">Login</a></p>
                             </div>
                         </form>
+
+                        <?php if (session()->has('success')) : ?>
+                            <div class="alert alert-success mt-3" role="alert">
+                                <?= session('success') ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (isset($validation) && $validation->getErrors()) : ?>
+                            <div class="alert alert-danger mt-3" role="alert">
+                                Please check the form for errors.
+                            </div>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
@@ -195,6 +223,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('showPassword').addEventListener('change', function () {
+            var passwordInput = document.getElementById('password');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
 
 </body>
 

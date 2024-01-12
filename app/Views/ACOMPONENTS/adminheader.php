@@ -182,6 +182,7 @@
 <body>
 
 <?php
+// Your existing PHP code
 function getCurrentTime() {
     return date('F j, Y g:i A', strtotime('now'));
 }
@@ -191,71 +192,23 @@ $philippineTime = getCurrentTime();
 
 <a class="btn btn-danger" href="<?= site_url('/logout') ?>">Logout</a>
 
-<!-- First header for smartphone only -->
-<div class="header mobile-header">
-    <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
-    <button class="button" onclick="openSecurityModal()">EMERGENCY CALL</button>
-</div>
-
-<!-- Second header for desktop mode only -->
 <div class="header desktop-header">
     <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
     <div class="navigation-bar">
-        <a href="<?= site_url('/home') ?>" class="nav-link">Home</a>
+        <a href="<?= site_url('/admin-manage') ?>" class="nav-link">MANAGE</a>
 
         <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">Good Governance</button>
+            <button class="btn btn-danger dropdown-toggle">PROFILE</button>
             <div class="dropdown-content">
-                <a href="#">Action</a>
-                <a href="#">Another action</a>
+                <a href="#">My Profile</a>
+                <a href="#">Responders List</a>
                 <a href="#">Something else here</a>
             </div>
         </div>
 
-        <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">Downloads</button>
-            <div class="dropdown-content">
-                <a href="#">Action</a>
-                <a href="#">Another action</a>
-                <a href="#">Something else here</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">About Us</button>
-            <div class="dropdown-content">
-                <a href="#">Action</a>
-                <a href="#">Another action</a>
-                <a href="#">Something else here</a>
-            </div>
-        </div>
-
-        <a href="<?= site_url('/contact-us') ?>" class="nav-link">Contact Us</a>
+        <a href="<?= site_url('/contact-us') ?>" class="nav-link">ANALYTICS</a>
     </div>
 
-    <!-- Search form -->
-    <form id="searchForm" class="form-inline">
-        <!-- Update the data-bs-target attribute to match your modal ID -->
-        <button type="button" class="btn btn-sm search-button" data-toggle="modal" data-target="#searchModal">Search</button>
-    </form>
-
-    <!-- Search modal -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="searchModalLabel">Search</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group mb-3">
-                        <input type="text" id="searchInputModal" class="form-control" placeholder="Enter your search term..." aria-label="Enter your search term..." aria-describedby="button-addon2">
-                        <button class="btn btn-danger" type="button" id="button-addon2" onclick="search()">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <span id="philippineTime" class="philippine-time">Philippine Standard Time: <?= $philippineTime ?></span>
 </div>
@@ -267,9 +220,6 @@ $philippineTime = getCurrentTime();
 
 
 <script>
-    function makeEmergencyCall() {
-        console.log('Emergency call initiated!');
-    }
 
     function toggleMenu() {
         const toggleMenuButton = document.querySelector('.toggle-menu-button');
@@ -300,45 +250,6 @@ $philippineTime = getCurrentTime();
     }
     updatePhilippineTime();
 
-    function closeSearchModal() {
-        const searchModal = new bootstrap.Modal(document.getElementById('searchModal'));
-        searchModal.hide();
-    }
-
-    function searchInModal() {
-        const searchInputModal = document.getElementById('searchInputModal');
-        const searchTermModal = searchInputModal.value.trim();
-
-        if (searchTermModal !== '') {
-            console.log('Search term in modal:', searchTermModal);
-            // Perform the search logic here
-            // You may want to update the UI or trigger the search function
-            closeSearchModal();
-        } else {
-            alert('Please enter a search term.');
-        }
-    }
-
-    function search() {
-        const searchInput = document.getElementById('searchInput');
-        const searchTerm = searchInput.value.trim();
-
-        if (searchTerm !== '') {
-            fetch(`app\Views\COMPONENTS\search.php?search=${encodeURIComponent(searchTerm)}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Search results:', data);
-                    // Process the search results (update UI, display results, etc.)
-                })
-                .catch(error => {
-                    console.error('Error during search:', error);
-                });
-        } else {
-            alert('Please enter a search term.');
-        }
-        const searchModal = new bootstrap.Modal(document.getElementById('searchModal'));
-        searchModal.show();
-    }
 </script>
 
 </body>

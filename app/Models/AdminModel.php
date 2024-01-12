@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AccountModel extends Model
+class AdminModel extends Model
 {
-    protected $table            = 'account';
-    protected $primaryKey       = 'user_id';
+    protected $table            = 'admins';
+    protected $primaryKey       = 'admin_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['fullName',	'dob',	'address',	'phoneNumber',	'email',	'password', 'sex',	'photoIdPath',	'profilePhotoPath', 'permission'];
+    protected $allowedFields    = ['first_name', 'middle_name', 'last_name', 'email_address', 'contact_number', 'organization_name', 'position_role', 'username', 'password', 'address', 'date_of_birth', 'gender'];
 
     // Dates
     protected $useTimestamps = false;

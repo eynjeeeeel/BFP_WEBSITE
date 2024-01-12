@@ -5,19 +5,44 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// NAVIGATION BAR
-$routes->get('/home', 'HomeController::home');
-$routes->get('/contact-us', 'HomeController::contactUs');
-$routes->get('/banner', 'HomeController::banner');
+
+// ---------------------USER WEBSITE------------------------------------
+
+// LOGIN
+$routes->get('login', 'LoginController::login');
+$routes->post('login/processLogin', 'LoginController::processLogin');
 
 // REGISTRATION
 $routes->get('registration', 'RegistrationController::register');
 $routes->post('registration/processForm', 'RegistrationController::processForm');
 
-// LOGIN
-$routes->get('login', 'LoginController::login'); // Removed extra space here
-$routes->post('login/processLogin', 'LoginController::processLogin');
+// NAVIGATION BAR
+$routes->get('/home', 'HomeController::home');
+$routes->get('/contact-us', 'HomeController::contactUs');
+$routes->get('/banner', 'HomeController::banner');
+$routes->get('/logout', 'HomeController::logout');
 
+
+// ---------------------ADMIN DASHBOARD------------------------------------
+// ADMIN LOGIN
+$routes->get('admin-login', 'ALoginController::adminlogin');
+$routes->post('admin-login/processLogin', 'ALoginController::adminprocessLogin');
+
+// ADMIN REGISTRATION
+$routes->get('admin-registration', 'ARegistrationController::adminregister');
+$routes->post('admin-registration/processForm', 'ARegistrationController::adminprocessForm');
+
+// ADMIN DASHBOARD NAVIGATION BAR 
+$routes->get('/admin-manage', 'ANavigationController::adminManage');
+
+
+// ADMIN DASHBOARD MANAGE 
+$routes->get('/admin-home', 'AhomeController::adminHome');
+$routes->get('/admin-contactus', 'AhomeController::adminContactUs');
+$routes->get('/admin-banner', 'AhomeController::adminBanner');
+$routes->get('/admin-logout', 'AhomeController::adminLogout');
+
+// ---------------------OTHER FUNCTIONS------------------------------------
 // NEWS
 $routes->get('news', 'NewsController::news');
 $routes->get('news/(:segment)', 'NewsController::show/$1');

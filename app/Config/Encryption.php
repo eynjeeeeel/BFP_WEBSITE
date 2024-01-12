@@ -79,7 +79,7 @@ class Encryption extends BaseConfig
      *
      * Set to 'authentication' for CI3 Encryption compatibility.
      */
-    public string $authKeyInfo = '';
+    public string $authKeyInfo = 'authentication';
 
     /**
      * Cipher to use.
