@@ -182,7 +182,6 @@
 <body>
 
 <?php
-// Your existing PHP code
 function getCurrentTime() {
     return date('F j, Y g:i A', strtotime('now'));
 }
@@ -249,6 +248,7 @@ $philippineTime = getCurrentTime();
             timeElement.textContent = `Philippine Standard Time: ${philippineTime}`;
         }, 1000);
     }
+    
     updatePhilippineTime();
 
 </script>

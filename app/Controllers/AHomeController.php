@@ -6,21 +6,10 @@ use App\Controllers\BaseController;
 
 class AhomeController extends BaseController
 {
-    protected $session;
 
-    public function __construct()
+    public function adminManage()
     {
-        $this->session = \Config\Services::session();
-    }
-
-    public function adminHome()
-    {
-        return view('ADMIN/adminhome'); // Adjust the view path based on your folder structure
-    }
-
-    public function adminContactUs()
-    {
-        return view('ADMIN/admincontactus'); // Adjust the view path based on your folder structure
+        return view('ADMIN/manage'); // Adjust the view path based on your folder structure
     }
 
     public function adminBanner()
@@ -28,9 +17,4 @@ class AhomeController extends BaseController
         return view('ADMIN/adminbanner'); // Adjust the view path based on your folder structure
     }
 
-    public function adminLogout()
-    {
-        $this->session->setFlashdata('logout_success', 'Admin Logout successful!');
-        return view('ALOGIN/adminlogin');
-    }
 }

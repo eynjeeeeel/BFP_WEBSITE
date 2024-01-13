@@ -74,14 +74,12 @@ class NewsController extends BaseController
         if ($this->validate($rules, $messages)) {
             $newsModel = new NewsModel();
 
-            // Handle file uploads
+            
             $imageFile = $this->request->getFile('image');
 
-            // Generate random names
             $imageFileName = $imageFile->getRandomName();
-
-            // Move files to the specified directory
-            $imageFile->move(ROOTPATH . 'public/uploads', $imageFileName);
+            
+            $imageFile->move(ROOTPATH . 'public/newsphoto', $imageFileName);
 
             $data = [
                 'title' => $this->request->getPost('title'),

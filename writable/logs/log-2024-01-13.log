@@ -423,3 +423,47 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
 11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\BFP_WEBSITE\\public\\index.php')
+CRITICAL - 2024-01-13 11:56:51 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:187)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 186.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:03:51 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:187)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 186.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:04:29 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:187)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 186.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:08:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "ADMINMANAGE/manage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ADMINMANAGE/manage.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('ADMINMANAGE/manage', [], true)
+ 3 APPPATH\Controllers\ANavigationController.php(12): view('ADMINMANAGE/manage')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ANavigationController->adminManage()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ANavigationController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\BFP_WEBSITE\\public\\index.php')
+CRITICAL - 2024-01-13 12:09:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "ADMINMANAGE/manage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ADMINMANAGE/manage.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('ADMINMANAGE/manage', [], true)
+ 3 APPPATH\Controllers\ANavigationController.php(12): view('ADMINMANAGE/manage')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ANavigationController->adminManage()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ANavigationController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\BFP_WEBSITE\\public\\index.php')
+CRITICAL - 2024-01-13 12:10:45 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:187)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 186.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:11:07 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:187)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 186.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:16:56 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:186)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 185.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:17:10 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:186)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 185.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-01-13 12:18:02 --> ErrorException: Cannot redeclare getCurrentTime() (previously declared in C:\laragon\www\BFP_WEBSITE\app\Views\ACOMPONENTS\adminheader.php:186)
+in APPPATH\Views\ACOMPONENTS\adminheader.php on line 185.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

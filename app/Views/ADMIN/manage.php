@@ -67,17 +67,19 @@
         <div class="row">
 
             <!------------- SIDEBAR -------------------------->
-            <div class="col-md-2">
-                <div class="sidebar">
-                    <h2>Admin Dashboard</h2>
-                    <a href="<?= site_url('/admin-home') ?>" class="nav-link">Home</a>
-                    <a href="<?= site_url('/newscreate') ?>" class="nav-link">Manage News</a>
+            <?= view('ACOMPONENTS/amanagesidebar'); ?>
+
+            <!------------- MAIN CONTENT ---------------------->
+            <div class="col-md-9">
+                <div class="content">
+                    <h3>Welcome to BFP Admin Dashboard</h3>
+
+                    <p>This is temporary content. Replace it with your actual content for the admin dashboard.</p>
+
+                    <!-- Add more content as needed -->
 
                 </div>
             </div>
-
-            <!------------- MAIN CONTENT ---------------------->
-            <?= view('ACOMPONENTS/NEWS/newsmaincontent'); ?>
         </div>
 
         <?= view('COMPONENTS/footer'); ?>

@@ -22,7 +22,6 @@ $routes->get('/contact-us', 'HomeController::contactUs');
 $routes->get('/banner', 'HomeController::banner');
 $routes->get('/logout', 'HomeController::logout');
 
-
 // ---------------------ADMIN DASHBOARD------------------------------------
 // ADMIN LOGIN
 $routes->get('admin-login', 'ALoginController::adminlogin');
@@ -32,15 +31,10 @@ $routes->post('admin-login/processLogin', 'ALoginController::adminprocessLogin')
 $routes->get('admin-registration', 'ARegistrationController::adminregister');
 $routes->post('admin-registration/processForm', 'ARegistrationController::adminprocessForm');
 
-// ADMIN DASHBOARD NAVIGATION BAR 
+// ADMIN DASHBOARD HEADER NAVIGATION BAR 
+$routes->get('/admin-home', 'ANavigationController::adminHome');
 $routes->get('/admin-manage', 'ANavigationController::adminManage');
-
-
-// ADMIN DASHBOARD MANAGE 
-$routes->get('/admin-home', 'AhomeController::adminHome');
-$routes->get('/admin-contactus', 'AhomeController::adminContactUs');
-$routes->get('/admin-banner', 'AhomeController::adminBanner');
-$routes->get('/admin-logout', 'AhomeController::adminLogout');
+$routes->get('/admin-logout', 'ANavigationController::adminLogout');
 
 // ---------------------OTHER FUNCTIONS------------------------------------
 // NEWS
