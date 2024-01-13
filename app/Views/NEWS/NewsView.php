@@ -46,7 +46,7 @@
                         <div class="card-body">
                             <img src="public/newsphoto<?= esc($item['image']) ?>" class="card-img-top" alt="<?= esc($item['title']) ?>">
                             <h3 class="card-title"><?= esc($item['title']) ?></h3>
-                            <p class="card-text"><?= esc(substr($item['body'], 0, 200)) ?>...</p>
+                            <p class="card-text"><?= esc(substr($item['content'], 0, 200)) ?>...</p>
                             <a href="<?= site_url('news/' . esc($item['slug'])) ?>" class="btn btn-danger">View article</a>
                         </div>
                     </div>

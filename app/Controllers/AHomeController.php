@@ -31,6 +31,6 @@ class AhomeController extends BaseController
     public function adminLogout()
     {
         $this->session->setFlashdata('logout_success', 'Admin Logout successful!');
-        return view('ADMIN/adminlogin'); // Adjust the view path based on your folder structure
+        return view('ALOGIN/adminlogin');
     }
 }

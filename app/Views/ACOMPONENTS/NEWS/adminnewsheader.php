@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,36 +56,3 @@
         }
     </style>
 </head>
-
-<body>
-    <?= view('ACOMPONENTS/adminheader'); ?>
-    <div class="container-fluid">
-       
-        <div class="row">
-
-            <!------------- SIDEBAR -------------------------->
-            <div class="col-md-2">
-                <div class="sidebar">
-                    <h2>Admin Dashboard</h2>
-                    <a href="<?= site_url('/admin-home') ?>" class="nav-link">Home</a>
-                    <a href="<?= site_url('/newscreate') ?>" class="nav-link">Manage News</a>
-
-                </div>
-            </div>
-
-            <!------------- MAIN CONTENT ---------------------->
-            <?= view('ACOMPONENTS/NEWS/newsmaincontent'); ?>
-        </div>
-
-        <?= view('COMPONENTS/footer'); ?>
-    </div>
-
-    <?= view('NEWS/NewsCreate'); ?>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-</body>
-
-</html>

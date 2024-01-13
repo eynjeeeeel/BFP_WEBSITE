@@ -71,7 +71,7 @@
                         <h2 class="card-title"><?= esc($news['title']) ?></h2>
                         <?php
                             $photoPath = base_url('newsphoto/' . esc($news['image']));
-                            $newsBody = esc($news['body']);
+                            $newsBody = esc($news['content']);
                         ?>
                         <img src="<?= $photoPath ?>" alt="News Photo" class="news-image">
                         

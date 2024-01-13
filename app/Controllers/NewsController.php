@@ -7,12 +7,20 @@ use App\Models\NewsModel;
 
 class NewsController extends BaseController
 {
+
+    protected $session;
+
+    public function __construct()
+    {
+        $this->session = \Config\Services::session();
+    }
+
     public function news()
     {
-        $model = new NewsModel();
+        $newsModel = new NewsModel();
 
         $data = [
-            'news' => $model->findAll(),
+            'news' => $newsModel->findAll(),
         ];
 
         return view('NEWS/NewsView', $data);
@@ -20,10 +28,10 @@ class NewsController extends BaseController
 
     public function show($slug)
     {
-        $model = new NewsModel();
+        $newsModel = new NewsModel();
 
         $data = [
-            'news' => $model->where('slug', $slug)->first(),
+            'news' => $newsModel->where('slug', $slug)->first(),
         ];
 
         if (empty($data['news'])) {
@@ -33,23 +41,63 @@ class NewsController extends BaseController
         return view('NEWS/NewsContent', $data);
     }
 
-    public function create()
+    public function newscreate()
     {
-        return view('NEWS/NewsCreate');
+        return view('ACOMPONENTS/NEWS/newsmaincontent');
     }
 
     public function store()
     {
-        $model = new NewsModel();
+        helper(['form', 'url', 'session']);
 
-        $data = [
-            'title' => $this->request->getPost('title'),
-            'slug' => url_title($this->request->getPost('title'), '-', true),
-            'body' => $this->request->getPost('body'),
+        $rules = [
+            'title' => 'required|max_length[255]',
+            'content' => 'required',
+            'image' => 'uploaded[image]|max_size[image,5000]|mime_in[image,image/jpeg,image/png,image/heic,image/jpg]|ext_in[image,png,jpg,jpeg,heic]',
         ];
 
-        $model->insert($data);
+        $messages = [
+            'title' => [
+                'required' => 'News Title is required.',
+                'max_length' => 'News Title should not exceed 255 characters.',
+            ],
+            'content' => [
+                'required' => 'News Content is required.',
+            ],
+            'image' => [
+                'uploaded' => 'News Image is required.',
+                'max_size' => 'News Image size should not exceed 5MB.',
+                'mime_in' => 'Invalid file type for News Image. Please upload a valid image file.',
+            ],
+        ];
 
-        return redirect()->to('news');
+        if ($this->validate($rules, $messages)) {
+            $newsModel = new NewsModel();
+
+            // Handle file uploads
+            $imageFile = $this->request->getFile('image');
+
+            // Generate random names
+            $imageFileName = $imageFile->getRandomName();
+
+            // Move files to the specified directory
+            $imageFile->move(ROOTPATH . 'public/uploads', $imageFileName);
+
+            $data = [
+                'title' => $this->request->getPost('title'),
+                'slug' => url_title($this->request->getPost('title'), '-', true),
+                'content' => $this->request->getPost('content'),
+                'image' => $imageFileName,
+            ];
+
+            $newsModel->insert($data);
+
+            $this->session->setFlashdata('success', 'News created successfully!');
+
+            return redirect()->to('newscreate');
+        } else {
+            $data['validation'] = $this->validator;
+            return view('ACOMPONENTS/NEWS/newsmaincontent', $data);
+        }
     }
 }

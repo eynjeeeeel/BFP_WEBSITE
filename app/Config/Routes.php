@@ -46,7 +46,7 @@ $routes->get('/admin-logout', 'AhomeController::adminLogout');
 // NEWS
 $routes->get('news', 'NewsController::news');
 $routes->get('news/(:segment)', 'NewsController::show/$1');
-$routes->get('news/create', 'NewsController::create');
+$routes->get('newscreate', 'NewsController::newscreate');
 $routes->post('news/store', 'NewsController::store');
 
 // SOS

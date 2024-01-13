@@ -190,11 +190,12 @@ function getCurrentTime() {
 $philippineTime = getCurrentTime();
 ?>
 
-<a class="btn btn-danger" href="<?= site_url('/logout') ?>">Logout</a>
+<a class="btn btn-danger" href="<?= site_url('/admin-logout') ?>">Logout</a>
 
 <div class="header desktop-header">
     <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
     <div class="navigation-bar">
+        <a href="<?= site_url('/admin-home') ?>" class="nav-link">HOME</a>
         <a href="<?= site_url('/admin-manage') ?>" class="nav-link">MANAGE</a>
 
         <div class="dropdown">
