@@ -42,6 +42,8 @@ $routes->get('news', 'NewsController::news');
 $routes->get('news/(:segment)', 'NewsController::show/$1');
 $routes->get('newscreate', 'NewsController::newscreate');
 $routes->post('news/store', 'NewsController::store');
+$routes->post('news/edit', 'NewsController::edit');
+$routes->post('news/update', 'NewsController::update');
 
 // SOS
 $routes->get('security', 'SecurityController::sos');
