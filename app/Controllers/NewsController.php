@@ -42,19 +42,18 @@ class NewsController extends BaseController
     }
     
     public function newscreate()
-{
-    $newsModel = new NewsModel();
-    $data['news'] = $newsModel->findAll();
-
-    // Set the $selected_news_id based on your logic
-    $data['selected_news_id'] = $this->request->getPost('selected_news_id'); // Assuming you're getting it from a form or another source
-
-    // Pass an empty array if news is not set to avoid undefined index error
-    $data['news_data'] = isset($data['selected_news_id']) ? $newsModel->find($data['selected_news_id']) : [];
-
-    return view('ACOMPONENTS/NEWS/newsmaincontent', $data);
-}
-
+    {
+        $newsModel = new NewsModel();
+        $data['news'] = $newsModel->findAll();
+    
+        // Set the $selected_news_id based on your logic
+        $data['selected_news_id'] = $this->request->getPost('selected_news_id'); // Assuming you're getting it from a form or another source
+    
+        // Pass an empty array if news is not set to avoid undefined index error
+        $data['news_data'] = isset($data['selected_news_id']) ? $newsModel->find($data['selected_news_id']) : [];
+    
+        return view('ACOMPONENTS/NEWS/newsmaincontent', $data);
+    }
     
     
 
@@ -110,23 +109,24 @@ class NewsController extends BaseController
             return view('ACOMPONENTS/NEWS/newsmaincontent', $data);
         }
     }
-    public function edit($news_id)
-    {
-        $newsModel = new NewsModel();
-        
-        $news = $newsModel->find($news_id);
-        
-        if (empty($news)) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item with ID: ' . $news_id);
-        }
     
-        $data = [
-            'news' => $news,
-            'selected_news_id' => $news_id, // Pass the selected_news_id to the view
-        ];
-    
-        return view('EDIT/NewsEditView', $data); // Assuming you have an edit view
+public function edit($news_id)
+{
+    $newsModel = new NewsModel();
+
+    $news = $newsModel->find($news_id);
+
+    if (empty($news)) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item with ID: ' . $news_id);
     }
+
+    $data = [
+        'news' => $news,
+        'selected_news_id' => $news_id, // Pass the selected_news_id to the view
+    ];
+
+    return view('ACOMPONENTS/NEWS/NewsEdit', $data); // Assuming you have an edit view
+}
     
     public function update()
     {
@@ -179,7 +179,7 @@ class NewsController extends BaseController
             return redirect()->to('newscreate'); // Redirect to the news list page
         } else {
             $data['validation'] = $this->validator;
-            return view('EDIT/NewsEditView', $data); 
+            return view('ACOMPONENTS/NEWS/NewsEdit', $data); 
         }
     }
     

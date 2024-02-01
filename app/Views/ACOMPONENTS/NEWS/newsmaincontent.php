@@ -38,25 +38,24 @@
                             $start = ($currentPage - 1) * $itemsPerPage;
                             $end = $start + $itemsPerPage;
                             $paginatedNews = array_slice($news, $start, $itemsPerPage);
-
-                            foreach ($paginatedNews as $item) :
-                            ?>
+                            foreach ($paginatedNews as $item) : ?>
                                 <tr class="table-row">
                                     <td class="col-md-1"><?= $item['news_id']; ?></td>
                                     <td class="col-md-3"><?= substr($item['title'], 0, 50); ?> ...</td>
                                     <td class="col-md-4"><?= substr($item['content'], 0, 100); ?> ...</td>
                                     <td class="col-md-1"><?= $item['image']; ?></td>
                                     <td class="col-md-2">
-                                        <button type="button" class="btn btn-warning" data-toggle="modal"
-                                            data-target="#editNewsModal" data-newsid="<?= $item['news_id'] ?>"
-                                            data-title="<?= $item['title'] ?>" data-content="<?= $item['content'] ?>"
-                                            data-image="<?= $item['image'] ?>">
-                                            Edit
-                                        </button>
-                                        <a href="<?= site_url('/delete/' . $item['news_id']) ?>" class="btn btn-danger">Delete</a>
+                                    <button type="button" class="btn btn-warning edit-news-btn" data-toggle="modal"
+                                        data-target="#editNewsModal" data-newsid="<?= $item['news_id'] ?>"
+                                        data-title="<?= $item['title'] ?>" data-content="<?= $item['content'] ?>"
+                                        data-image="<?= $item['image'] ?>">
+                                        Edit
+                                    </button>
+                                    <!-- <a href="<?= site_url('/delete/' . $item['news_id']) ?>" class="btn btn-danger">Delete</a> -->
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
+                            
                         </tbody>
                     </table>
 
@@ -69,7 +68,7 @@
                             for ($i = 1; $i <= $totalPages; $i++) :
                             ?>
                                 <li class="page-item <?= ($i == $currentPage) ? 'active' : ''; ?>">
-                                    <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
+                                    <a class="page-link" href="?table-page<?= $i; ?>"><?= $i; ?></a>
                                 </li>
                             <?php endfor; ?>
                         </ul>
@@ -90,24 +89,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-        function setEditModal(newsId, title, content, image) {
-            $('#editNewsId').val(newsId);
-            $('#editNewsTitle').val(title);
-            $('#editNewsContent').val(content);
-            $('#editNewsImagePreview').attr('src', '<?= base_url('public/newsphoto/') ?>' + image);
+    function setEditModal(newsId, title, content, image) {
+        $('#editNewsId').val(newsId);
+        $('#editNewsTitle').val(title);
+        $('#editNewsContent').val(content);
+        $('#editNewsImagePreview').attr('src', '<?= base_url('public/newsphoto/') ?>' + image);
 
-            $('#editNewsModal').modal('show');
-        }
+        $('#editNewsModal').modal('show');
+    }
 
-        $(document).on('click', '[data-newsid]', function () {
-            var newsId = $(this).data('newsid');
-            var title = $(this).data('title');
-            var content = $(this).data('content');
-            var image = $(this).data('image');
+    $(document).on('click', '.edit-news-btn', function () {
+        var newsId = $(this).data('newsid');
+        var title = $(this).data('title');
+        var content = $(this).data('content');
+        var image = $(this).data('image');
 
-            setEditModal(newsId, title, content, image);
-        });
-    </script>
+        setEditModal(newsId, title, content, image);
+    });
+</script>
+
+
 
 </body>
 
