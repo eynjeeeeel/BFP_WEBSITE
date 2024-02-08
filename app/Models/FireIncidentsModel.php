@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class NewsModel extends Model
+class FireIncidentsModel extends Model
 {
-    protected $table            = 'news';
-    protected $primaryKey       = 'news_id';
+    protected $table            = 'fire_incidents';
+    protected $primaryKey       = 'incident_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'slug', 'content','image','date_posted'];
+    protected $allowedFields    = ['user_id', 'location_id', 'incident_description', 'created_at'];
 
     // Dates
     protected $useTimestamps = false;
@@ -22,7 +22,7 @@ class NewsModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [ ];
+    protected $validationRules      = [];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
@@ -38,4 +38,3 @@ class NewsModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 }
-

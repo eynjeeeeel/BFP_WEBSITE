@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="newsImage">Image</label>
-                            <input type="file" class="form-control" name="image" id="newsImage" accept="image/*" required>
+                            <input type="file" class="form-control" name="image" id="newsImage" accept="image/*" multiple required>
                         </div>
                         <button type="submit" class="btn btn-primary">Add News</button>
                     </form>

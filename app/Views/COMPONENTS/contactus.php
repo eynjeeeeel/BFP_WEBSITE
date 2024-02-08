@@ -102,25 +102,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
-        navigator.geolocation.getCurrentPosition((position) => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+    navigator.geolocation.getCurrentPosition((position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
 
-            document.getElementById('latitude').innerText = `Latitude: ${latitude}`;
-            document.getElementById('longitude').innerText = `Longitude: ${longitude}`;
+        document.getElementById('latitude').innerText = `Latitude: ${latitude}`;
+        document.getElementById('longitude').innerText = `Longitude: ${longitude}`;
 
-            fetch('update_location.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    latitude: latitude,
-                    longitude: longitude,
-                }),
-            });
+        // Update the user's location using AJAX
+        fetch('/location/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `latitude=${latitude}&longitude=${longitude}`,
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>

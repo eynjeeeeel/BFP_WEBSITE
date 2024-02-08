@@ -5,21 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFP WEBSITE</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
     <style>
-        .header,
-        .logo-bar,
-        .nav-desktop-header {
-            width: 100%; /* Change to 100% for responsiveness */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-sizing: border-box; /* Include padding in the width */
-            padding: 10px 20px; /* Add padding for smaller screens */
-        }
-
         body {
             margin: 0;
             padding: 0;
@@ -28,147 +14,54 @@
         }
 
         .header {
-            background-color: #EF3340;
-            width: 100%; /* Change to 100% for responsiveness */
-            height: 220px;
+            background-color: #EF3340; 
+            padding: 10px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 0 20px; /* Add padding for smaller screens */
-            box-sizing: border-box; /* Include padding in the width */
         }
 
         .logo {
-            max-width: 100%; /* Adjust to 100% for responsiveness */
-            height: auto;
-        }
-
-
-        .logo-desktop-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            background-color: yellow;
-            width: 100%;
-            padding: 10px 20px; 
-            box-sizing: border-box;
-        }
-
-        .nav-desktop-header {
-            display: flex;
-            flex: 2;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #EF3340;
-            width: 100%;
-            padding: 10px 10px; 
-            box-sizing: border-box; 
-            color: #fff;
-        }
-
-        .logo-bar {
-            width: 100%;
-            height: 120px;
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 20px;
-            background-color: #EF3340;
-            padding: 10px 10px;
-            box-sizing: border-box;
-        }
-
-        .logo-bar-icons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .logo-bar-icons i {
-            display: flex;
-            background-color: var(--primary-bg);
-            padding: 5px;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-bar img {
             max-width: 430px;
             height: auto;
         }
 
-        .nav-desktop-header i {
-            font-size: 18px;
-        }
-
-        .nav-desktop-header .fa-home,
-        .fa-comment,
-        .fa-bell {
-            position: relative;
-        }
-
-        .nav-desktop-header .fa-home span,
-        .fa-comment span,
-        .fa-bell span {
-            position: absolute;
-            background-color: #e90000;
-            font-size: 10px;
-            padding: 4px;
-            border-radius: 50%;
-            top: -5px;
-            right: -15px;
-        }
-
-        .nav-desktop-header .fa-desktop {
-            position: relative;
-        }
-
-        .nav-desktop-header .fa-play {
-            position: absolute;
-            top: 4px;
-            left: 34%;
-            font-size: 20px;
+        .navigation-bar {
+            display: flex;
+            align-items: center;
         }
 
         .nav-link {
             text-decoration: none;
-            color: #333;
+            color: #fff;
             margin: 0 15px;
             font-weight: bold;
             transition: color 0.3s;
-            font-size: 16px;
         }
 
         .nav-link:hover {
-            color: #EF3340;
+            color: #FFD100; 
         }
 
         .search-bar {
-            margin: 20px;
-            height: 30px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
+        margin: 20px;
+        height: 30px;
+        padding: 8px;
+        border: 1px solid #ddd; /* Add border to the search bar */
+        border-radius: 4px;
+        font-size: 14px;
+    }
 
-        .search-button {
-            font-size: 16px;
-            padding: 10px 20px;
-            background-color: #EF3340;
-            color: #fff;
-            border: 1px solid #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .search-button {
+        background-color: #EF3340;
+        color: #fff;
+        border: 1px solid #fff; /* Add border to the search button */
+        border-radius: 4px;
+        padding: 8px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
         .search-button:hover {
             background-color: #D82230;
@@ -176,8 +69,8 @@
 
         .philippine-time {
             margin-left: auto;
-            color: #333;
-            font-size: 16px;
+            color: #fff;
+            font-size: 14px;
         }
 
         .toggle-menu {
@@ -186,14 +79,13 @@
             position: absolute;
             top: 50px;
             right: 0;
-            background-color: #EF3340;
+            background-color: #EF3340; 
             padding: 10px;
             z-index: 1;
-            color: #fff;
         }
 
         .toggle-menu-button {
-            background-color: #EF3340;
+            background-color: #EF3340; 
             color: #fff;
             cursor: pointer;
             margin-right: 10px;
@@ -224,7 +116,7 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        @media (max-width: 1515px) {
+        @media (max-width: 1000px) {
             .desktop-header {
                 display: none;
             }
@@ -235,215 +127,144 @@
 
             .toggle-menu {
                 display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 50px;
-                right: 0;
-                background-color: #EF3340;
-                padding: 10px;
-                z-index: 1;
             }
-                .logo-bar {
-                    height: auto;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                }
+        }
 
-                .logo-bar img {
-                    max-width: 100%;
-                    margin-right: 0; 
-                }
-
-                .nav-desktop-header {
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .nav-desktop-header .nav-link {
-                    margin: 10px 0;
-                }
-            }
-            
         @media (min-width: 1000px) {
             .mobile-header {
                 display: none;
             }
         }
 
-
+        /* Styles for the normal dropdown */
         .dropdown {
             position: relative;
             display: inline-block;
         }
 
         .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #EF3340;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
+        display: none;
+        position: absolute;
+        background-color: #EF3340;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
 
-        .dropdown btn {
-            color: #EF3340;
+        
+    }
+    .dropdown btn {
+        color: #EF3340; /* Set to the desired color */
+        
+        border: 1px solid #EF3340; /* Set the border color */
+    }
+    .dropdown-content a {
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
 
-            border: 1px solid #EF3340;
-        }
-
-        .dropdown-content a {
-            color: #fff;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #CD5C5C;
-            color: #fff;
-        }
+    .dropdown-content a:hover {
+        background-color: #555;
+        color: #fff;
+    }
 
         .dropdown button {
-            font-size: 16px;
-            color: #fff;
+            color: #fff; 
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
-        .emergency-call-button {
-            background-color: #fff;
-            color: #EF3340;
-            border: 1px solid #EF3340;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .emergency-call-button:hover {
-            background-color: #EF3340;
-            color: #fff;
-        }
-
     </style>
 </head>
 
+
 <body>
 
-    <?php
-    function getCurrentTime()
-    {
-        return date('F j, Y g:i A', strtotime('now'));
-    }
+<?php
+// Your existing PHP code
+function getCurrentTime() {
+    return date('F j, Y g:i A', strtotime('now'));
+}
 
-    $philippineTime = getCurrentTime();
-    ?>
+$philippineTime = getCurrentTime();
+?>
 
-    <a class="btn btn-danger" href="<?= site_url('/logout') ?>">Logout</a>
+<a class="btn btn-danger" href="<?= site_url('/logout') ?>">Logout</a>
 
-    <!-- First header for smartphone only -->
-    <div class="header mobile-header">
-        <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
-        <button class="button" onclick="openSecurityModal()">EMERGENCY CALL</button>
+<!-- First header for smartphone only -->
+<div class="header mobile-header">
+    <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
+    <button class="button" onclick="openSecurityModal()">EMERGENCY CALL</button>
+</div>
+
+<!-- Second header for desktop mode only -->
+<div class="header desktop-header">
+    <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
+    <div class="navigation-bar">
+        <a href="<?= site_url('/home') ?>" class="nav-link">Home</a>
+
+        <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle">Good Governance</button>
+            <div class="dropdown-content">
+                <a href="#">Action</a>
+                <a href="#">Another action</a>
+                <a href="#">Something else here</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle">Downloads</button>
+            <div class="dropdown-content">
+                <a href="#">Action</a>
+                <a href="#">Another action</a>
+                <a href="#">Something else here</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle">About Us</button>
+            <div class="dropdown-content">
+                <a href="#">Action</a>
+                <a href="#">Another action</a>
+                <a href="#">Something else here</a>
+            </div>
+        </div>
+
+        <a href="<?= site_url('/contact-us') ?>" class="nav-link">Contact Us</a>
     </div>
 
-    <!-- Second header for desktop mode only -->
-    <div class="logo-desktop-header">
-        <div class="logo-bar">
-            <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
+    <!-- Search form -->
+    <form id="searchForm" class="form-inline">
+        <!-- Update the data-bs-target attribute to match your modal ID -->
+        <button type="button" class="btn btn-sm search-button" data-toggle="modal" data-target="#searchModal">Search</button>
+    </form>
 
-            <!-- Search form -->
-            <form id="searchForm" class="form-inline">
-                <!-- Update the data-bs-target attribute to match your modal ID -->
-                <button type="button" class="btn btn-sm search-button" data-toggle="modal"
-                    data-target="#searchModal">Search</button>
-            </form>
-
-            <!-- Search modal -->
-            <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="searchModalLabel">Search</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close">Close</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="input-group mb-3">
-                                <input type="text" id="searchInputModal" class="form-control"
-                                    placeholder="Enter your search term..."
-                                    aria-label="Enter your search term..."
-                                    aria-describedby="button-addon2">
-                                <button class="btn btn-danger" type="button" id="button-addon2"
-                                    onclick="searchInModal()">Search</button>
-                            </div>
-                        </div>
+    <!-- Search modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="searchModalLabel">Search</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" id="searchInputModal" class="form-control" placeholder="Enter your search term..." aria-label="Enter your search term..." aria-describedby="button-addon2">
+                        <button class="btn btn-danger" type="button" id="button-addon2" onclick="search()">Search</button>
                     </div>
                 </div>
             </div>
-
-            <span id="philippineTime" class="philippine-time">Philippine Standard Time:
-                <?= $philippineTime ?></span>
-        </div>
-        <!-- NAVIGATION -->
-        <div class="nav-desktop-header">
-            <a href="https://www.gov.ph/" class="nav-link">GOVPH</a>
-
-            <a href="<?= site_url('/home') ?>" class="nav-link">Home</a>
-
-            <div class="dropdown">
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Good Governance
-                </button>
-                <div class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?= site_url('') ?>">BFP SOPs</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Memorandum Circulars</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Forms</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Manual</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Fire Prev 2020</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">NFO 2020</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Complaint Hotline Number</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">BFP Official Logo</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Downloads
-                </button>
-                <div class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Vision and Mission</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Mandates and Functions</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Key Officials</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    About US
-                </button>
-                <div class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?= site_url('') ?>">Annual Procurement Plan</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">BFP Citizen's Charter</a>
-                    <a class="dropdown-item" href="<?= site_url('') ?>">PhilGEPS Posting</a>
-                </div>
-            </div>
-
-            <a href="<?= site_url('/contact-us') ?>" class="nav-link">Contact Us</a>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <span id="philippineTime" class="philippine-time">Philippine Standard Time: <?= $philippineTime ?></span>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
 <script>

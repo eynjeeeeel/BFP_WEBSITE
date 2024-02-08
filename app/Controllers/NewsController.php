@@ -46,10 +46,8 @@ class NewsController extends BaseController
         $newsModel = new NewsModel();
         $data['news'] = $newsModel->findAll();
     
-        // Set the $selected_news_id based on your logic
-        $data['selected_news_id'] = $this->request->getPost('selected_news_id'); // Assuming you're getting it from a form or another source
+        $data['selected_news_id'] = $this->request->getPost('selected_news_id'); 
     
-        // Pass an empty array if news is not set to avoid undefined index error
         $data['news_data'] = isset($data['selected_news_id']) ? $newsModel->find($data['selected_news_id']) : [];
     
         return view('ACOMPONENTS/NEWS/newsmaincontent', $data);
@@ -110,23 +108,24 @@ class NewsController extends BaseController
         }
     }
     
-public function edit($news_id)
-{
-    $newsModel = new NewsModel();
-
-    $news = $newsModel->find($news_id);
-
-    if (empty($news)) {
-        throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item with ID: ' . $news_id);
+    public function edit($news_id)
+    {
+        $newsModel = new NewsModel();
+    
+        $news = $newsModel->find($news_id);
+    
+        if (empty($news)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item with ID: ' . $news_id);
+        }
+    
+        $data = [
+            'news' => $news,
+            'selected_news_id' => $news_id,
+        ];
+    
+        return view('ACOMPONENTS/NEWS/newsmaincontent', $data); 
     }
-
-    $data = [
-        'news' => $news,
-        'selected_news_id' => $news_id, // Pass the selected_news_id to the view
-    ];
-
-    return view('ACOMPONENTS/NEWS/NewsEdit', $data); // Assuming you have an edit view
-}
+    
     
     public function update()
     {
@@ -156,13 +155,13 @@ public function edit($news_id)
             $newsModel = new NewsModel();
         
             $news_id = $this->request->getPost('news_id'); // Get news_id from the form
-        
+
             $newsData = [
                 'title' => $this->request->getPost('title'),
                 'slug' => url_title($this->request->getPost('title'), '-', true),
                 'content' => $this->request->getPost('content'),
             ];
-        
+
             // Check if a new image is uploaded
             $newImage = $this->request->getFile('image');
             if ($newImage->isValid()) {
@@ -170,19 +169,36 @@ public function edit($news_id)
                 $newImage->move(ROOTPATH . 'public/newsphoto', $imageFileName);
                 $newsData['image'] = $imageFileName;
             }
-        
+
             // Update the news
             $newsModel->update($news_id, $newsData);
         
             $this->session->setFlashdata('success', 'News updated successfully!');
         
-            return redirect()->to('newscreate'); // Redirect to the news list page
+            return redirect()->to('newscreate'); 
         } else {
             $data['validation'] = $this->validator;
-            return view('ACOMPONENTS/NEWS/NewsEdit', $data); 
+            return view('ACOMPONENTS/NEWS/newsmaincontent', $data); 
         }
     }
-    
-    
+    public function delete($news_id)
+{
+    $newsModel = new NewsModel();
+
+    // Check if the news item exists
+    $news = $newsModel->find($news_id);
+
+    if (empty($news)) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find the news item with ID: ' . $news_id);
+    }
+
+    // Delete the news item
+    $newsModel->delete($news_id);
+
+    $this->session->setFlashdata('success', 'News deleted successfully!');
+
+    return redirect()->to(base_url('newscreate')); // Redirect to the appropriate route
+}
+
     
 }

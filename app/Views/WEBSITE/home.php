@@ -47,12 +47,7 @@
             transition: opacity 1s ease-in-out;
         }
 
-        .dropdown-item.active, .dropdown-item:active {
-            background-color: #EF3340;
-            color: white;
-        }
-
-        a {
+        .btn-news {
             margin-top: 20px;
             text-align: center;
         }
@@ -80,43 +75,36 @@
                 </div>
 
 
-                <!---------------------------------------  WHAT'S NEWS ----------------------------------------------->
-                <div class="dropdown">
-                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        What's New
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="<?= site_url('news') ?>">Press Release</a>
-                        <a class="dropdown-item" href="#">Announcements</a>
-                    </div>
+                <!--------------------------------------- NEWS PRESS RELEASE ----------------------------------------------->
+                <div class="col-md-1">
+                    <a href="<?= site_url('news') ?>" class="btn btn-danger btn-news">News</a>
                 </div>
 
-                <!---------------------------------------  NOTICE OF VACANCY ----------------------------------------------->
-                <div class="dropdown">
-                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Notice of Vacancy
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="<?= site_url('news') ?>">Position Available</a>
-                        <a class="dropdown-item" href="#">Application Status</a>
-                    </div>
+
+                <!--------------------------------------- SAFETY TIPS  ----------------------------------------------->
+                <div class="col-md-1 offset-md-1">
+                    <a href="<?= site_url('') ?>" class="btn btn-danger btn-news">Safety Tip</a>
                 </div>
 
-                <!---------------------------------------  PROCUREMENTS ----------------------------------------------->
-                <div class="dropdown">
-                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Procurements
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="<?= site_url('') ?>">Bids & Awards Comm</a>
-                        <a class="dropdown-item" href="#">Contract Agreement</a>
-                        <a class="dropdown-item" href="#">Notice of Award</a>
-                        <a class="dropdown-item" href="#">Notice of Proceed</a>
-                        <a class="dropdown-item" href="#">Request for Quotation</a>
-                    </div>
+                <!--------------------------------------- SAFETY TIPS  ----------------------------------------------->
+                <div class="col-md-1 offset-md-1">
+                    <a href="<?= site_url('') ?>" class="btn btn-danger btn-news">Safety Ti</a>
                 </div>
+
+                <!--------------------------------------- SAFETY TIPS  ----------------------------------------------->
+                <div class="col-md-1 offset-md-1">
+                    <a href="<?= site_url('') ?>" class="btn btn-danger btn-news">Safety T</a>
+                </div>
+
+                <!--------------------------------------- SAFETY TIPS  ----------------------------------------------->
+                <div class="col-md-1 offset-md-1">
+                    <a href="<?= site_url('') ?>" class="btn btn-danger btn-news">Safety Tips</a>
+                </div>
+
                 <!---------------------------------------  LINK TO OTHER AGENCIES ----------------------------------------------->
-                <p><a href="<?= site_url('news') ?>" class="btn btn-danger">Link To Other Agencies</a></p>
+                <div class="col-md-1 offset-md-1">
+                    <a href="<?= site_url('news') ?>" class="btn btn-danger">Link To Other Agencies</a>
+                </div>
         </div>
     </div>
 

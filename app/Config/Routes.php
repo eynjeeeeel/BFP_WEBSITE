@@ -44,8 +44,14 @@ $routes->get('newscreate', 'NewsController::newscreate');
 $routes->post('news/store', 'NewsController::store');
 $routes->post('news/edit', 'NewsController::edit');
 $routes->post('news/update', 'NewsController::update');
+$routes->get('delete/(:segment)', 'NewsController::delete/$1'); 
+
 
 // SOS
 $routes->get('security', 'SecurityController::sos');
 $routes->post('security/capture-fire-incident', 'SecurityController::captureFireIncident');
 $routes->post('security/send-to-admin-dashboard', 'SecurityController::sendToAdminDashboard');
+
+
+$routes->get('user-location', 'LocationController::showUserLocation');
+$routes->post('location/update', 'LocationController::updateLocation');
