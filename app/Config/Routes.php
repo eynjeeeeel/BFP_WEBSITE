@@ -46,6 +46,13 @@ $routes->post('news/edit', 'NewsController::edit');
 $routes->post('news/update', 'NewsController::update');
 $routes->get('delete/(:segment)', 'NewsController::delete/$1'); 
 
+// CAROUSEL IMAGES
+$routes->get('carouselhome', 'CarouselController::carouselhome');
+$routes->get('carouselImages', 'CarouselController::addImages');
+$routes->post('carousel/store', 'CarouselController::store');
+$routes->post('carousel/edit', 'CarouselController::edit');
+$routes->post('carousel/update', 'CarouselController::update');
+$routes->get('delete/(:segment)', 'CarouselController::delete/$1'); 
 
 // SOS
 $routes->get('security', 'SecurityController::sos');
