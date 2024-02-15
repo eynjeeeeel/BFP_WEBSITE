@@ -189,25 +189,11 @@ function getCurrentTime() {
 $philippineTime = getCurrentTime();
 ?>
 
-<a class="btn btn-danger" href="<?= site_url('/admin-logout') ?>">Logout</a>
+
 
 <div class="header desktop-header">
     <img src="<?= base_url(); ?>images/Banner03_18Aug2018.png" alt="Logo" class="logo">
-    <div class="navigation-bar">
-        <a href="<?= site_url('/admin-home') ?>" class="nav-link">HOME</a>
-        <a href="<?= site_url('/admin-manage') ?>" class="nav-link">MANAGE</a>
-
-        <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">PROFILE</button>
-            <div class="dropdown-content">
-                <a href="#">My Profile</a>
-                <a href="#">Responders List</a>
-                <a href="#">Something else here</a>
-            </div>
-        </div>
-
-        <a href="<?= site_url('/contact-us') ?>" class="nav-link">ANALYTICS</a>
-    </div>
+    
 
 
     <span id="philippineTime" class="philippine-time">Philippine Standard Time: <?= $philippineTime ?></span>

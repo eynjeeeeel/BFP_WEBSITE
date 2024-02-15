@@ -62,3 +62,9 @@ $routes->post('security/send-to-admin-dashboard', 'SecurityController::sendToAdm
 
 $routes->get('user-location', 'LocationController::showUserLocation');
 $routes->post('location/update', 'LocationController::updateLocation');
+
+//EMERGENCY CALL
+//EMERGENCY CALL
+$routes->get('emergency-call', 'EmergencyCallController::emergencycall');
+$routes->post('emergency-call/submit', 'EmergencyCallController::submit');
+

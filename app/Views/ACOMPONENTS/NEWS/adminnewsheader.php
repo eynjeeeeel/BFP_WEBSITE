@@ -1,4 +1,5 @@
-<head>
+          
+            <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFP WEBSITE Admin Dashboard</title>
@@ -21,21 +22,17 @@
         }
 
         .sidebar {
-            background-color: #343a40;
+            margin-top: auto;
+            background-color: #EF3340;
             color: #fff;
-            padding: 10px;
             height: 100vh;
         }
 
         .sidebar a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 0;
+            
             display: block;
-        }
-
-        .sidebar a:hover {
-            background-color: #495057;
         }
 
         .container-fluid {
@@ -73,7 +70,7 @@
         }
 
         th {
-            background-color: #343a40;
+            background-color: darkviolet;
             color: #fff;
         }
 

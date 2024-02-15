@@ -64,7 +64,7 @@ class FileCollection
                 return $uploadedFile instanceof UploadedFile ? $uploadedFile : null;
             }
 
-            if (array_key_exists($name, $this->files)) {
+            if (is_array($this->files) && array_key_exists($name, $this->files)) {
                 $uploadedFile = $this->files[$name];
 
                 return $uploadedFile instanceof UploadedFile ? $uploadedFile : null;
@@ -92,7 +92,7 @@ class FileCollection
                     $uploadedFile : null;
             }
 
-            if (array_key_exists($name, $this->files)) {
+            if (is_array($this->files) && array_key_exists($name, $this->files)) {
                 $uploadedFile = $this->files[$name];
 
                 return (is_array($uploadedFile) && ($uploadedFile[array_key_first($uploadedFile)] instanceof UploadedFile)) ?
@@ -119,7 +119,7 @@ class FileCollection
             $el = $this->files;
 
             foreach ($segments as $segment) {
-                if (! array_key_exists($segment, $el)) {
+                if (!is_array($el) || !array_key_exists($segment, $el)) {
                     return false;
                 }
 
@@ -129,7 +129,7 @@ class FileCollection
             return true;
         }
 
-        return isset($this->files[$fileID]);
+        return is_array($this->files) && isset($this->files[$fileID]);
     }
 
     /**
@@ -167,11 +167,11 @@ class FileCollection
      */
     protected function createFileObject(array $array)
     {
-        if (! isset($array['name'])) {
+        if (!isset($array['name'])) {
             $output = [];
 
             foreach ($array as $key => $values) {
-                if (! is_array($values)) {
+                if (!is_array($values)) {
                     continue;
                 }
 
@@ -208,7 +208,7 @@ class FileCollection
             foreach ($array as $field => $value) {
                 $pointer = &$output[$name];
 
-                if (! is_array($value)) {
+                if (!is_array($value)) {
                     $pointer[$field] = $value;
 
                     continue;
@@ -229,7 +229,7 @@ class FileCollection
                     // RecursiveIteratorIterator::hasChildren() can be used. RecursiveIteratorIterator
                     // forwards all unknown method calls to the underlying RecursiveIterator internally.
                     // See https://github.com/php/doc-en/issues/787#issuecomment-881446121
-                    if (! $iterator->hasChildren()) {
+                    if (!$iterator->hasChildren()) {
                         $pointer[$field] = $val;
                     }
                 }

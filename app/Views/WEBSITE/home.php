@@ -85,10 +85,7 @@
                 <a href="<?= site_url('news') ?>" class="btn btn-danger btn-news">News</a>
             </div>
 
-            <!--------------------------------------- SAFETY TIPS  ----------------------------------------------->
-            <div class="col-md-1 offset-md-1">
-                <a href="<?= site_url('') ?>" class="btn btn-danger btn-news">Safety Tip</a>
-            </div>
+        
 
             <!--------------------------------------- SAFETY TIPS  ----------------------------------------------->
             <div class="col-md-1 offset-md-1">

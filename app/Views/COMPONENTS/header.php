@@ -204,34 +204,12 @@ $philippineTime = getCurrentTime();
     <div class="navigation-bar">
         <a href="<?= site_url('/home') ?>" class="nav-link">Home</a>
 
-        <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">Good Governance</button>
-            <div class="dropdown-content">
-                <a href="#">Action</a>
-                <a href="#">Another action</a>
-                <a href="#">Something else here</a>
-            </div>
-        </div>
+        
 
-        <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">Downloads</button>
-            <div class="dropdown-content">
-                <a href="#">Action</a>
-                <a href="#">Another action</a>
-                <a href="#">Something else here</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle">About Us</button>
-            <div class="dropdown-content">
-                <a href="#">Action</a>
-                <a href="#">Another action</a>
-                <a href="#">Something else here</a>
-            </div>
-        </div>
+        
 
         <a href="<?= site_url('/contact-us') ?>" class="nav-link">Contact Us</a>
+        
     </div>
 
     <!-- Search form -->
@@ -258,6 +236,10 @@ $philippineTime = getCurrentTime();
         </div>
     </div>
 
+    <div class="col-md-1 offset-md-1">
+                <button onclick="openModal()" class="btn btn-danger btn-news modal-btn">Emergency Call</button>
+        </div>
+
     <span id="philippineTime" class="philippine-time">Philippine Standard Time: <?= $philippineTime ?></span>
 </div>
 
@@ -266,6 +248,27 @@ $philippineTime = getCurrentTime();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+<?= view('EMERGENCYCALL/emergencybutton'); ?>
+
+<script>
+    // Function to open the modal
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        var modal = document.getElementById("myModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 <script>
     function makeEmergencyCall() {
