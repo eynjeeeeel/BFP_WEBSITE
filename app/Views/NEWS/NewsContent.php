@@ -107,7 +107,7 @@
 
 <body>
 
-    <?= view('COMPONENTS/header'); ?>
+<?= view('WEBSITE/site'); ?>
 
     <div class="container mt-4">
         <a href="javascript:history.go(-1);" class="btn btn-danger btn-back">Back</a>
@@ -133,7 +133,7 @@
         </div>
     </div>
 
-    <?= view('COMPONENTS/footer'); ?>
+    <?= view('hf/footer'); ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

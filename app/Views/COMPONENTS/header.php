@@ -204,10 +204,6 @@ $philippineTime = getCurrentTime();
     <div class="navigation-bar">
         <a href="<?= site_url('/home') ?>" class="nav-link">Home</a>
 
-        
-
-        
-
         <a href="<?= site_url('/contact-us') ?>" class="nav-link">Contact Us</a>
         
     </div>

@@ -27,6 +27,24 @@ class HomeController extends BaseController
         return view('COMPONENTS/banner');
     }
 
+    public function achievements()
+    {
+        return view('WEBSITE/achievements');
+    }
+    public function contacts()
+    {
+        return view('WEBSITE/contacts');
+    }
+    public function activities()
+    {
+        return view('WEBSITE/activities');
+    }
+    public function site()
+    {
+        return view('WEBSITE/site');
+    }
+
+
     public function logout()
     {
        $this->session->setFlashdata('logout_success', 'Logout successful!');

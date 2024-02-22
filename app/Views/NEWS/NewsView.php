@@ -88,7 +88,7 @@
 
 <body>
 
-    <?= view('COMPONENTS/header'); ?>
+<?= view('WEBSITE/site'); ?>
 
     <div class="container mt-4">
         <h2 class="article-preview-heading mb-4">Article Preview</h2>
@@ -117,7 +117,7 @@
         </div>
     </div>
 
-    <?= view('COMPONENTS/footer'); ?>
+    <?= view('hf/footer'); ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

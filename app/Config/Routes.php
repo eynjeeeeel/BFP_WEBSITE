@@ -21,6 +21,12 @@ $routes->get('/home', 'HomeController::home');
 $routes->get('/contact-us', 'HomeController::contactUs');
 $routes->get('/banner', 'HomeController::banner');
 $routes->get('/logout', 'HomeController::logout');
+$routes->get('/achievements', 'HomeController::achievements');
+$routes->get('/contacts', 'HomeController::contacts');
+$routes->get('/activities', 'HomeController::activities');
+$routes->get('/site', 'HomeController::home');
+
+
 
 // ---------------------ADMIN DASHBOARD------------------------------------
 // ADMIN LOGIN
