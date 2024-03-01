@@ -26,6 +26,8 @@ $routes->get('/contacts', 'HomeController::contacts');
 $routes->get('/activities', 'HomeController::activities');
 $routes->get('/site', 'HomeController::home');
 
+//ALBUM
+$routes->get('/album', 'HomeController::album');
 
 
 // ---------------------ADMIN DASHBOARD------------------------------------

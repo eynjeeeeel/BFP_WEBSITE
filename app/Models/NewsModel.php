@@ -37,5 +37,14 @@ class NewsModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    //album
+    protected $albumtable            = 'album';
+    protected $albumprimaryKey       = 'id';
+    protected $albumuseAutoIncrement = true;
+    protected $albumreturnType       = 'array';
+    protected $albumuseSoftDeletes   = false;
+    protected $albumprotectFields    = true;
+    protected $albumallowedFields    = ['id', 'title', 'description','image_path'];
 }
 

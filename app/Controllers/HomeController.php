@@ -52,4 +52,9 @@ class HomeController extends BaseController
             return view('LOGIN/login');
         
     }
+   
+    public function album()
+    {
+        return view('WEBSITE/album');
+    }
 }
