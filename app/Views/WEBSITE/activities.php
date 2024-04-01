@@ -146,97 +146,93 @@
   <main>
     </div>
     <div class="album">
-        <img src="website/rank.jpg" alt="Activity 1">
+        <img src="website/rank.jpg">
         <div class="album-info">
             <h3><strong>Rank Inspection</strong></h3>
-            <a href="<?= site_url('/album') ?>" class="nav-link">Album</a>
+            <a href="<?= site_url('/album') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/sportsfest.jpg" alt="Activity 2">
-        <div class="album-info">
-            <h3><strong> Sportsfest</strong></h3>
-        </div>
-    </div>
-
-    <div class="album">
-        <img src="website/intern.jpg" alt="Activity 2">
+        <img src="website/intern.jpg">
         <div class="album-info">
             <h3><strong>Fire Intern</strong></h3>
-            
+            <a href="<?= site_url('/intern') ?>" class="nav-link">Show More</a>
         </div>
     </div>
     <div class="album">
-        <img src="website/personnel.jpg" alt="Activity 2">
+        <img src="website/personnel.jpg">
         <div class="album-info">
             <h3><strong>Personnel &  Firetruck Visibility/Standby/ <br> Assistance</strong></h3>
-            
+            <a href="<?= site_url('/pfv') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/fdas.jpg" alt="Activity 2">
+        <img src="website/fdas.jpg">
         <div class="album-info">
             <h3><strong>FDAS/AFSS/Manual & Automatic <br> Fire Alarm System Testing</strong></h3>
+            <a href="<?= site_url('/fdas') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/inspect.jpg" alt="Activity 2">
+        <img src="website/11.jpg">
         <div class="album-info">
             <h3><strong>Inspection</strong></h3>
+            <a href="<?= site_url('/inspection') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/worship.jpg" alt="Activity 2">
+        <img src="website/worship.jpg">
         <div class="album-info">
             <h3><strong>Worship</strong></h3>
+            <a href="<?= site_url('/worship') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/drill.jpg" alt="Activity 2">
+        <img src="website/drill.jpg">
         <div class="album-info">
             <h3><strong>Fire Drill & Safety Seminar</strong></h3>
+            <a href="<?= site_url('/drill') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/flag.jpg" alt="Activity 2">
+        <img src="website/flag.jpg">
         <div class="album-info">
             <h3><strong>Flag Raising Ceremony</strong></h3>
+            <a href="<?= site_url('/frc') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/water.jpg" alt="Activity 2">
+        <img src="website/water.jpg">
         <div class="album-info">
             <h3><strong>Water Assistance</strong></h3>
+            <a href="<?= site_url('/water') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/skills.jpg" alt="Activity 2">
+        <img src="website/skills.jpg">
         <div class="album-info">
             <h3><strong>Skills Enhancement Activity</strong></h3>
+            <a href="<?= site_url('/sea') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
     <div class="album">
-        <img src="website/PFP.jpg" alt="Activity 2">
+        <img src="website/PFP.jpg">
         <div class="album-info">
             <h3><strong>Physical Fitness Program</strong></h3>
+            <a href="<?= site_url('/pfvp') ?>" class="nav-link">Show More</a>
         </div>
     </div>
 
-    <div class="album">
-        <img src="website/.jpg" alt="Activity 2">
-        <div class="album-info">
-            <h3><strong></strong></h3>
-        </div>
-    </div>
+    
 </main>
   </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

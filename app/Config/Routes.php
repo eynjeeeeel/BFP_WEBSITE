@@ -28,6 +28,10 @@ $routes->get('/site', 'HomeController::home');
 
 //ALBUM
 $routes->get('/album', 'HomeController::album');
+$routes->get('/intern', 'HomeController::intern');
+$routes->get('/pfv', 'HomeController::pfv');
+$routes->get('/fdas', 'HomeController::fdas');
+$routes->get('/inspection', 'HomeController::inspection');
 
 
 // ---------------------ADMIN DASHBOARD------------------------------------

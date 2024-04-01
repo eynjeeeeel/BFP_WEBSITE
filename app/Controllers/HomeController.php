@@ -55,6 +55,22 @@ class HomeController extends BaseController
    
     public function album()
     {
-        return view('WEBSITE/album');
+        return view('WEBSITE/rank');
+    }
+    public function intern()
+    {
+        return view('WEBSITE/intern');
+    }
+    public function pfv()
+    {
+        return view('WEBSITE/pfv');
+    }
+    public function fdas()
+    {
+        return view('WEBSITE/fdas');
+    }
+    public function inspection()
+    {
+        return view('WEBSITE/inspection');
     }
 }
